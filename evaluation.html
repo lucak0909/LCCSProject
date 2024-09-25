@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+  
+  <a href="create.html"><button class="button-prev">Previous</button></a>
+  <a href="references.html"><button class="button-next">Next</button></a>
+
+
+  <nav>
+    <a class="index-title">Index</a>
+    <a href="index.html" class="index-link">Home</a>
+    <a href="meeting-the-brief.html" class="index-link">Meeting The Brief</a>
+    <a href="investigation.html" class="index-link">Investigation</a>
+    <a href="plan-and-design.html" class="index-link">Plan and Design</a>
+    <a href="create.html" class="index-link">Create</a>
+    <a href="evaluation.html" class="index-link">Evaluation</a>
+    <a href="references.html" class="index-link">References</a>
+    <a href="word-count.html" class="index-link">Word Count</a>
+  </nav>
+    
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>LCCS Project Report</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  
+  <body>
+    <h1>Evaluation</h1>
+    <div style="display: inline-block; margin-top: 110px; width: 45%">
+      <h2><u>How my artefact meets the requirements set out in the brief:</u></h2>
+      <div style="margin-top: 30px; padding-left: 20px;"> 
+        Overall, my final artefact achieves all project requirements and objectives set out in the brief. 
+        My artefact utilizes a range of digital and analogue inputs and outputs to communicate with the user. 
+        All data received and transmitted by the system is validated before being sent or on arrival. 
+        This data is then stored programmatically in a my own database for later analysis, and works fully 
+        autonomously from the user. The system retains the ability to calculate information based on it's 
+        stored data, and uses this data to inform future decisions related to cardiovascular 
+        health and stress. <br><br>
+        
+        Furthermore, the system is capable of using my personally created dataset, which 
+        is generated programmatically and includes multiple descriptive features of wellbeing in the form of 
+        "string" and "integer" data types, to answer two "what if" type questions based on my theme. 
+        Both questions use the parameters of age and gender, which are inputs given to the programme 
+        by the user and are validated through the use of while loops. In addition, each question also 
+        uses the "Heart_Rate" data stored in the CSV file, which had been validated previously in the 
+        "checkBPM()" function, by replacing any unwanted characters and by not accepting NaN values. 
+        Finally, the system is capable of displaying "Heart_Rate" and "Stress_Level" in graphical format, 
+        upon the users request, which allows the user to visualize their progress while using the system.
+      </div>
+      <div>
+        <div style="display: inline-block; width: 50%; height: auto;">
+          <h3 style="text-align: center;"><u>Inputs</u></h3>
+          <div style="text-align: center; font-weight: bold;">Analogue: Pulse Sensor</div>
+          <img src="Images/pulse-sensor.png" alt="SEN0203 Pulse Sensor" style="width: 75%; margin-left: 12.5%;">
+          <div style="text-align: center; font-weight: bold;">Digital: Button Switches</div>
+          <img src="Images/microbit-buttons.jpg" alt="MicroBit Button inputs" style="width: 75%; margin-left: 12.5%;">
+        </div>
+        <div style="float: right; width: 50%; height: auto;">
+          <h3 style="text-align: center;"><u>Outputs</u></h3>
+          <div style="text-align: center; font-weight: bold;">Digital: LED Display</div>
+          <img src="Images/microbit-display.png" alt="Microbit LED Display" style="width: 75%; margin-left: 12.5%;">
+          <div style="text-align: center; font-weight: bold;">Analogue: Speaker</div>
+          <img src="Images/microbit-speaker.png" alt="MicroBit Built-In Speaker" style="width: 75%; margin-left: 12.5%;">
+        </div>
+      </div>
+    </div>
+    <div style="float: right; margin-top: 110px; width: 45%; padding-right: 5%;">
+      <div>
+        <h2 style="float: left;"><u>How has the project met the needs of the end users that I have referred to in the investigation: </u></h2>
+        <div> 
+          My project has met most requirements of the end users that I have referred to in the investigation. 
+          First, I was able to create a device which would help the user both monitor and reduce their 
+          stress (shown below) through methods explained by the system. I also managed to ensure it was fully autonomous and 
+          performed all basic requirements without user input. This meant the device continues to function 
+          without the intervention of the user. However, unfortunately the pulse sensor's reliability meant 
+          I could not create a portable device. <br><br>
+        </div>
+        <div>
+          <img src="Images/stress.png" alt="Graphical representation of stress" style="width: 40%; height: auto;">
+          <img src="Images/warning.png" alt="Suggestion to Reducing Stress" style="display: inline-block; width: 55%; height: auto; margin-bottom: 11%;">
+        </div>
+      </div>
+      <div>
+        <h2 style="float: left;"><u>Future iterations of the design process: </u></h2>
+        <div style="margin-top: 10px;"> 
+          <br><br><br><br>In future iterations of the design process, I would attempt to 
+          find a way to which the MicroBit could wirelessly transmit data via Bluetooth, 
+          WIFI or even radio signals, instead of using a Serial USB connection. This would 
+          mean that I could more easily create a device vastly more portable than my current 
+          artefact, provided I found a way to overcome the pulse sensor's stationary dependency. 
+          <br><br>
+        </div>
+        <div>
+          <img src="Images/bluetooth.png" alt="Bluetooth" style="width: 40%; height: auto;">
+          <img src="Images/wifi.png" alt="WiFi" style="display: inline-block; width: 40%; height: auto;">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

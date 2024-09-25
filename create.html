@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+  <a href="plan-and-design.html"><button class="button-prev">Previous</button></a>
+  <a href="evaluation.html"><button class="button-next">Next</button></a>
+
+  <nav>
+    <a class="index-title">Index</a>
+    <a href="index.html" class="index-link">Home</a>
+    <a href="meeting-the-brief.html" class="index-link">Meeting The Brief</a>
+    <a href="investigation.html" class="index-link">Investigation</a>
+    <a href="plan-and-design.html" class="index-link">Plan and Design</a>
+    <a href="create.html" class="index-link">Create</a>
+    <a href="evaluation.html" class="index-link">Evaluation</a>
+    <a href="references.html" class="index-link">References</a>
+    <a href="word-count.html" class="index-link">Word Count</a>
+  </nav>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>LCCS Project Report</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <h1>Create</h1>
+    <div style="display: inline-block; margin-top: 110px; width: 45%">
+      <h2><u>Progress Log:</u></h2>
+      <div style="margin-top: 30px; padding-left: 20px;"> 
+        Weeks 1-5: 
+        <li>Brainstormed Project Ideas and researched viability of each.</li><br>
+        Week 5-7: 
+        <li>Planned rough outline of how system will work.</li>
+        <li>Created rough draft of programme in python.</li>
+        <li>Used random values as a "test heart-rate" instead of pulse sensor values.</li>
+        <li>Created programmatically edited CSV file.</li><br>
+        Week 7-9:
+        <li>Created basic MicroBit programme to collect data from pulse sensor.</li>
+        <li>Created basic python function to collect serial data from MicroBit.</li>
+        <li>Tested pulse sensor on MicroBit's serial plotter to ensure its functional.</li><br>
+        Week 9-11:
+        <li>Brainstormed ways of detecting heart beat using pulse-sensor data.</li>
+        <li>Created heart beat detection using MicroBit.</li>
+        <li>Tested serial USB communication through MicroBit.</li><br>
+        Week 11-13:
+        <li>Created python function to recieve, verify and clean data recieved using serial communication.</li>
+        <li>Programmed 'what if' type questions, using the custom CSV database.</li><br>
+        Week 13-15
+        <li>Fixed errors relating to CSV storing. - It accepted NaN values.</li>
+        <li>Tested if the programme would accept, unusual values (tested validation code).</li>
+        <li>Created graphing function within the python programme using matplotlib.</li><br>
+        Week 16:
+        <li>Created video for "Meeting The Brief".</li><br><br>
+      </div>
+    </div>
+    <div style="float: right; margin-top: 110px; width: 45%; padding-right: 5%;">
+      <h2 style="float: left;"><u>Unit Testing:</u></h2>
+      <div style="margin-top: 70px;"> 
+        <ol>
+          <li>
+            During the creation of my artefact, an attempt was made to reduce memory usage on the MicroBit device 
+            due to the fatal error caused when it had reached its limit of 16kB. I attempted this first by implementing a 
+            function to clear the "pulse_list" after calculating an average. I hoped for a RAM usage of less than 
+            16kB, but the actual result showed usage greater than 16kB in the form of the fatal error. I then tried 
+            again by instead increasing the frequency of clearing the "pulse_list," yet it also resulted in RAM 
+            usage exceeding 16kB, leading to failure. Finally, I added a delay into my microbit code. This 
+            would make my data less accurate as it would collect less values but successfully decreased memory usage by writing to the memory less.<br><br> 
+          </li>
+          <li>
+            Another case of testing was when attempts were made to recognize a button press on the MicroBit while
+            receiving BPM through serial data. For my solution I created code in the MicroBit which sent data,
+            out of the range of any other serial data being sent, on press of any button. Unfortunately, the expected
+            Python output was not attained upon button press. I then attempted to place the serial write line inside of 
+            a loop to increase the length of time that the programme could read that a button was pressed.
+            Finally, the programme successfully recognized a button press while 
+            receiving BPM through serial data by looping the serial write line 150 times, on the
+            press of a button, achieving the expected Python output. <br><br>
+          </li>
+        </ol>
+        <div><u style="margin-left: 45%;"><b>Testing Table<br><br></b></u></div>
+        <div>
+          <img src="Images/Test Table.png" alt="Unit Testing Table" style="width: 100%; padding-right: 0;">  
+        </div>
+      </div>
+    </div>
+    <div style="float: left;">
+      <h2><u><b>A Problem I Encountered:</b></u></h2>
+      <div>
+        The most difficult problem I encountered during implementation was programming the MicroBit to recognize a heartbeat.
+        My only means of measuring the user's heart rate was by using the pulse sensor to count the amount of beats per minute.
+        Originally I planned to recognize a heartbeat by setting a threshold at which if the pulse sensor's output passes, 
+        the MicroBit would recognize it as a beat. The pulse sensor gave an analogue output within a range of 0 - 1023, however,
+        the average output value deviated often. This is due to multiple factors, however the primary 
+        cause I had observed was that since the pulse sensor operates by measuring the amount of light not absorbed by the user's
+        haemoglobin, if there was any significant movement by the user the pulse sensor would move with them potentially
+        shining the light on a larger/smaller blood vessel containing more/less haemoglobin resulting in a larger or smaller 
+        output range from the pulse sensor. This meant that the original method that I used to ensure the MicroBit recognized a 
+        heartbeat would not work. <br><br>
+
+        This was the solution I came to; Every second, 
+        the pulse sensor sent roughly 50 outputs, so I attempted to utilized fast frequency in my solution. Each time the MicroBit 
+        read a value given by the pulse sensor, it would add said value to the end of a list called "pulse_list". Then, every 2 
+        seconds, the MicroBit would loop through "pulse_list" and add each index in pulse list to a variable called "Average". Then 
+        once all values in "pulse_list" were added to "Average", I divided "Average" by the length of "pulse_list". I then emptied 
+        "pulse_list" and for the next 2 seconds, if the pulse sensor output went from being less than "Average" to greater than "Average", 
+        the MicroBit would recognize it as a heartbeat. After 2 more seconds the same process would occur, ensuring that even if the 
+        pulse sensor's output range changed drastically, within 2 seconds the MicroBit would be able to recognize the user's heartbeat.<br><br>
+
+        The below is the code and an image of the serial plotter to better understand the solution:
+      </div>
+      <div style="height: 300 px;">
+        <div style="display: inline-block; width: 50%; height: 100%;">
+          <img src="Images/Problem Code.png" alt="Solution To The Problem" style="width: 100%; margin-left: 12.5%; border: 1px solid black; margin-top: 5px; max-height: 100%;">
+        </div>
+        <div style="display: inline-block; width: 13.2%; height: 100%;">
+          <img src="Images/Average line.png" alt="Serial Plotter" style="width: 100%; border: 1px solid black; margin-top: 5px; margin-left: 100px; max-height: 100%; margin-right: 12.5%;">
+        </div>
+      </div>
+    </div>
+    <div style="float: left;">
+      <h2><u><b><br>An Important Piece of my Code:</b></u></h2>
+      <div style="float: left;"><img src="Images/Important.png" alt="Serial Function" style="height: 400px; width: auto;"></div>
+      <div style="max-width: 90%;">
+        This piece of code was vitally important to the functioning of my project. The purpose of this function was to clean and 
+        validate any serial data received by the python programme. The entire project hinged on receiving value for heart rate 
+        from the MicroBit. This code ensured this by first initializing the data variable as a alphabetical string.
+        This was to ensure that the programme entered the while loop when the function "checkBPM()" was called, 
+        as "str.isdigit()" returns False if the string is not only numerical digits.  <br>
+
+        <img src="Images/validate.png" alt="While Loop to validate data" style="display: inline-block; width: 50%; margin-left: 10%; padding: 5px;">
+
+        <br>The loop then initializes the serial connection, then reads the received serial data. The serial data is 
+        received in a unpleasant format with many unwanted characters littered throughout.
+        The function "str.replace()" resolves that issue by replacing any character with another.<br><br>
+
+        <img src="Images/cleaning.png" alt="Cleaning Serial Data" style="display: inline-block; width: 20%; margin-left: 20%; padding-bottom: 20px;">
+
+        <br>The loop then closes the serial connection. Finally, if the string "data" is not solely 
+        numerical digits or is equal to "0" (to ensure NaN values are not accepted), the function returns the 
+        variable "data" to the main programme to be used as heart rate.<br><br><br><br><br><br><br>
+      </div>
+    </div>
+  </body>
+</html>

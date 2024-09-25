@@ -71,6 +71,16 @@ h1 {
   right: 2%; 
   font-weight: bold;
 }
+.button-prev:hover {
+  background-color: #f5e942;
+  border: 2px solid black;
+  color: black;
+}
+.button-next:hover {
+  background-color: #f5e942;
+  border: 2px solid black;
+  color: black;
+}
 .surveyimg {
   position: relative;
   margin-top: 0;

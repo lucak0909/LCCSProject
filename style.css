@@ -1,0 +1,109 @@
+html {
+  height: 100%;
+  width: 100%;
+  font-family: Helvetica;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 150px;
+  background-color: #7242f5;
+  border-right: 3px solid black;
+}
+.index-link {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #ffffff;
+}
+.index-link:hover {
+  background-color: #f5e942;
+  border: 2px solid black;
+  color: black;
+}
+.index-title {
+  display: block;
+  padding-top: 5%;
+  padding-left: 27%;
+  padding-bottom: 5%;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: bold;
+  border-bottom: 2px solid #ffffff;
+}
+body {
+  margin-left: 200px;
+  margin-right: 0%;
+  background-color: #ffffff;
+}
+h1 {
+  position: absolute;
+  font-size: 60px;
+  font-weight: bold;
+  padding-left: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 3px solid black;
+  margin-left: 200px;
+  padding-right: 30px;
+  margin-top: 0%;
+  top: 0;
+  left: 0;
+}
+.button-prev {
+  background-color: #7242f5; 
+  color: #ffffff; 
+  height: 30px; 
+  position: fixed; 
+  margin-left: 0px;
+  bottom: 2%; 
+  font-weight: bold;
+}
+.button-next {
+  background-color: #7242f5; 
+  color: #ffffff; 
+  height: 30px; 
+  position: fixed; 
+  bottom: 2%;
+  right: 2%; 
+  font-weight: bold;
+}
+.surveyimg {
+  position: relative;
+  margin-top: 0;
+  top: 0;
+  min-width: 120px;
+  padding: 5px;
+  width: 28%;
+  max-width: 22%;
+  height: auto;
+}
+img {
+  width: 30%;
+  height: auto;
+}
+.center {
+  margin-left: 24%;
+  width: 50%;
+  padding: 10px;
+}
+li {
+  padding-left: 30px;
+}
+.reference {
+  background-color: #7242f5; 
+  color: #ffffff; 
+  height: 50px; 
+  font-weight: bold;
+  margin-left: 40px; 
+  font-weight: bold;
+}
+th, td{
+  border:1px solid black;
+  padding-left: 30px; 
+  padding-right: 30px;
+  font-size: 50px;
+}
